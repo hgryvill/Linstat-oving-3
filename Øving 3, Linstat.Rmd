@@ -2,7 +2,9 @@
 title: "Untitled"
 author: "Astrid Langsrud, Håkon Gryvill"
 date: "25 4 2018"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
@@ -40,7 +42,7 @@ How should the response be measured?
 What can you say about the accuracy of these measurements?
 
 We have chosen how far down the ruler is caught as response variable, because this gives us a good measurement of the test subject's responsiveness. Response time could also be used as response variable. This is however equivalent to measuring how far the ruler has fallen, as we can easily find the response time by applying the laws of physics.  
-The response variable was measured by taking the average of the numbers covered by the fingers (dårlig formulering?). The response variable was measured as the midpoint of where the hand was gripping the ruler. We found it difficult to make accurate measurements of the response variable, and this is regarded as an important source of error. Considering the fact that the ruler is only 30 cm long, small measurement errors makes relatively large errors. 
+The response variable was measured by taking the average of the numbers covered by the fingers (dårlig formulering?). The response variable was measured as the midpoint of where the hand was gripping the ruler. We found it difficult to make accurate measurements of the response variable, and this is regarded as an important source of error. Considering the fact that the ruler is only 30 cm long, small measurement errors makes relatively large errors.   
 
 # Choice of design:
 2 k factorial.
