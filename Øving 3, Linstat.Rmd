@@ -1,10 +1,9 @@
 ---
-title: "Untitled"
+title: "Linear statistical models, project 3"
 author: "Astrid Langsrud, Håkon Gryvill"
 date: "25 4 2018"
 output:
-  html_document:
-    df_print: paged
+  pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -13,10 +12,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 # Introduction
-Describe the problem you want to study.
-Why is this interesting?
-What prior knowledge do you have?
-What do you want to achieve?
 
 In our experiment we want to study how different factors affect our responsiveness. 
 The experiment was performed in the following way: 
@@ -25,10 +20,6 @@ This experiment is of interest because it gives us an idea of how mental and phy
 
 
 # Selection of factors and levels:
-Which factors do you think are relevant to the problem described above?
-Do you expect an interaction between some of the factors?
-Which levels should be used, and why do you think these are reasonable?
-How can you control that the factors really are at the desired level?
 
 We are looking at the following factors in our experiment: the gender of the test person, physical distraction (i. e., whether the person has been spinning around or not) and mental distraction (the person has to talk about a given topic during the experiment).
 There are two main reasons why these factors were chosen. Firstly, we thought these factors were interesting. Secondly, these factors were expected to have some impact on the result. On the other hand, achieving the desired level for the different factors could be demanding. For example, spinning around might affect the responsiveness longer than thought. It is also reason to believe that the level of difficulty of the mental distraction was varying; some topics could be more challenging to talk about than others. Nevertheless, this is difficult to control.
@@ -36,68 +27,82 @@ In advance, we expected that at least physical distraction would decrease the re
 However, we did not expect that any of the factors would have a major influence on each other. For instance, there is no reason for us to think that spinning around affects women more than men. 
 
 # Selection of response variable:
-Which response variable will provide information about the problem described above?
-Are there several response variables of interest?
-How should the response be measured?
-What can you say about the accuracy of these measurements?
+
 
 We have chosen how far down the ruler is caught as response variable, because this gives us a good measurement of the test subject's responsiveness. Response time could also be used as response variable. This is however equivalent to measuring how far the ruler has fallen, as we can easily find the response time by applying the laws of physics.  
 The response variable was measured by taking the average of the numbers covered by the fingers (dårlig formulering?). The response variable was measured as the midpoint of where the hand was gripping the ruler. We found it difficult to make accurate measurements of the response variable, and this is regarded as an important source of error. Considering the fact that the ruler is only 30 cm long, small measurement errors makes relatively large errors.   
 
 # Choice of design:
-2 k factorial.
-Is it necessary or desirable to use a blocked design?
-Is it necessary or desirable with replicates?
-
 
 In order to see significant effects, two replicates of the experiment was performed. In both replicates, all experiments were performed in random order.
+
 # Implementation of the experiment:
-Randomization.
-Describe any problems with the implementation (maybe the randomization was not followed?).
-Is each experiments a genuine run replicate, that is reflects the total variability of the experiment? (Each trial should be a performed independently and constitute a full trial.)
 
 As we see it, there are two main problems with the performance of the experiment. Firstly, it is almost impossible to make two genuine run replicates; our responsiveness improves as we keep doing the experiments. 
 Secondly, the experiments are not completely independent, as discussed in "Selection of factors and levels". On the other hand, the fact that the order of the experiments in the replicates are independent (and not the same, random order in both replicates) decreases the possibility of systematic error. Performing the experiments in the same order in both replicates could lead to the same error being done in both experiments. 
 
 # Analysis of data
 
-Calculation of effects and assessment of statistical significance.
-Check the assumptions. Important: residual plots!
+Now we are going to analyse the results of performing the experiments.
 
-```{r, echo=TRUE, eval = TRUE}
-y1 = c(16, 8, 15, 14, 15, 20, 11, 0)
-y2 = c(13, 11, 14, 12, 20, 23, 14, 21)
-y = c(y1, y2)
+The following is the summary of the model fit for two replications when all interactions are included. 
+```{r, echo=FALSE, include=FALSE}
 library(FrF2)
-plan <- FrF2(nruns=8, nfactors=3, replications = 2, randomize=FALSE)
+plan <- FrF2(nruns=8,nfactors=3,replications=2,randomize=FALSE)
+plan
+y <- c(14,22,15,16,15,10,19,30,13,11,14,12,20,23,14,21)
+y
 plan <- add.response(plan,y)
 plan
-lm3 <- lm(y~.^3,data=plan)
-summary(lm3)
 lm3r <- lm(y~(A+B+C)^3,data=plan)
+```
+
+```{r, echo=FALSE}
 summary(lm3r)
-cubePlot(lm3,"A","B","C")
-MEPlot(lm3) # main effects plot
-IAPlot(lm3) # interaction effect plots
-effects <- 2*lm3$coeff
-effects
+```
+The summary shows that the all the p-values, Pr(>|t|), for all the factors are larger than 0.1, implying that none of the factors have significant impact on the response. Also the standard error is relatively high. 
 
-n <- length(y)
+However one observe that the value for factor C, distraction, is higher than for the other factors, and the p-value is lower. Thus, it seems like this facor might have a higher impact on the result than the other. For the interaction factors it seems like the interaction between facor B and C, and the interactins between all the three factors are the most sifnificant. But also for thses the p-value is too high to conclude anything.
 
-#dev.copy2pdf(file="lima3PartoR.pdf")
+Thw following plots are the main effect plot and the interaction plot
+```{r, echo=FALSE}
+MEPlot(lm3r)
+```
 
-rres <- rstudent(lm3)
+```{r, echo=FALSE}
+IAPlot(lm3r)
+```
+These plots illustrates the same trends as those given by the summary. Factor C gives the steepest curve in the main effect plot. However, when looking at the y-axis one sees that the line is not actually very steep. In the interaction plot the lines for the interaction factor of B and C are least parallell. 
+
+The next figures are the residual plot and the Q-Q-plot, testing normality of the residuals.
+```{r, echo=FALSE}
+rres <- rstudent(lm3r)
 plot(lm3r$fitted,rres)
 
-library(nortest)
-library(MASS)
 qqnorm(rres)
 qqline(rres)
-# dev.copy2pdf(file="lima3qq.pdf")
-library(nortest)
-ad.test(rstudent(lm3r))
+```
+
+The residuals do not seem to follow any specific pattern in the residual plot. In the normal Q-Q-plot the residuals deviates some from the line in the ends. In both plots it would be easier to conclude anything about the normality of the residualt if there had been more points.
+
+Since the two replicates was performed at two different times, it could be interesting to see if there are any significant differences between the two replicates. Thus, we now try to set this as a block factor, by having the replicates in different blocks. The following is a summary of the model where replicate number is set to an additional facort.
+
+```{r, echo=FALSE}
+a <- rep(c(-1, 1), 8)
+b <- rep(c(-1, -1, 1, 1), 4)
+c <- c(rep(-1, 4), rep(1, 4), rep(-1, 4), rep(1, 4))
+d <- c(rep(-1, 8), rep(1, 8))
+ab <- a * b
+ac <- a * c
+bc <- b * c
+abc <- a * b * c
+y <- c(14,22,15,16,15,10,19,30,13,11,14,12,20,23,14,21)
+fit2<-lm(y ~ (a + b + c) ^ 3 + d)
+summary(fit2)
 
 ```
+This did not improve the model, as the p-values are still large for all the factors.
+
 
 # Conclusion and recommendations:
 Which conclusions can you draw from the experiment?

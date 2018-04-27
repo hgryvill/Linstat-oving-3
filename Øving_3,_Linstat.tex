@@ -24,51 +24,11 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={Untitled},
+            pdftitle={Linear statistical models, project 3},
             pdfauthor={Astrid Langsrud, Håkon Gryvill},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -113,7 +73,7 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{Untitled}
+  \title{Linear statistical models, project 3}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \author{Astrid Langsrud, Håkon Gryvill}
@@ -129,9 +89,6 @@
 
 \section{Introduction}\label{introduction}
 
-Describe the problem you want to study. Why is this interesting? What
-prior knowledge do you have? What do you want to achieve?
-
 In our experiment we want to study how different factors affect our
 responsiveness. The experiment was performed in the following way: A
 ruler is dropped at a random point in time. The test person's
@@ -146,11 +103,6 @@ factor affects the responsiveness.
 
 \section{Selection of factors and
 levels:}\label{selection-of-factors-and-levels}
-
-Which factors do you think are relevant to the problem described above?
-Do you expect an interaction between some of the factors? Which levels
-should be used, and why do you think these are reasonable? How can you
-control that the factors really are at the desired level?
 
 We are looking at the following factors in our experiment: the gender of
 the test person, physical distraction (i. e., whether the person has
@@ -172,11 +124,6 @@ for us to think that spinning around affects women more than men.
 \section{Selection of response
 variable:}\label{selection-of-response-variable}
 
-Which response variable will provide information about the problem
-described above? Are there several response variables of interest? How
-should the response be measured? What can you say about the accuracy of
-these measurements?
-
 We have chosen how far down the ruler is caught as response variable,
 because this gives us a good measurement of the test subject's
 responsiveness. Response time could also be used as response variable.
@@ -192,16 +139,12 @@ measurement errors makes relatively large errors.
 
 \section{Choice of design:}\label{choice-of-design}
 
-2 k factorial. Is it necessary or desirable to use a blocked design? Is
-it necessary or desirable with replicates?
-
 In order to see significant effects, two replicates of the experiment
 was performed. In both replicates, all experiments were performed in
-random order. \# Implementation of the experiment: Randomization.
-Describe any problems with the implementation (maybe the randomization
-was not followed?). Is each experiments a genuine run replicate, that is
-reflects the total variability of the experiment? (Each trial should be
-a performed independently and constitute a full trial.)
+random order.
+
+\section{Implementation of the
+experiment:}\label{implementation-of-the-experiment}
 
 As we see it, there are two main problems with the performance of the
 experiment. Firstly, it is almost impossible to make two genuine run
@@ -216,140 +159,10 @@ error being done in both experiments.
 
 \section{Analysis of data}\label{analysis-of-data}
 
-Calculation of effects and assessment of statistical significance. Check
-the assumptions. Important: residual plots!
+Now we are going to analyse the results of performing the experiments.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{y1 =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{16}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{0}\NormalTok{)}
-\NormalTok{y2 =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{13}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{21}\NormalTok{)}
-\NormalTok{y =}\StringTok{ }\KeywordTok{c}\NormalTok{(y1, y2)}
-\KeywordTok{library}\NormalTok{(FrF2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Loading required package: DoE.base
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: grid
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: conf.design
-\end{verbatim}
-
-\begin{verbatim}
-## 
-## Attaching package: 'DoE.base'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     aov, lm
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:graphics':
-## 
-##     plot.design
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:base':
-## 
-##     lengths
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{plan <-}\StringTok{ }\KeywordTok{FrF2}\NormalTok{(}\DataTypeTok{nruns=}\DecValTok{8}\NormalTok{, }\DataTypeTok{nfactors=}\DecValTok{3}\NormalTok{, }\DataTypeTok{replications =} \DecValTok{2}\NormalTok{, }\DataTypeTok{randomize=}\OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## creating full factorial with 8 runs ...
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{plan <-}\StringTok{ }\KeywordTok{add.response}\NormalTok{(plan,y)}
-\NormalTok{plan}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    run.no run.no.std.rp  A  B  C Blocks  y
-## 1       1           1.1 -1 -1 -1     .1 16
-## 2       2           2.1  1 -1 -1     .1  8
-## 3       3           3.1 -1  1 -1     .1 15
-## 4       4           4.1  1  1 -1     .1 14
-## 5       5           5.1 -1 -1  1     .1 15
-## 6       6           6.1  1 -1  1     .1 20
-## 7       7           7.1 -1  1  1     .1 11
-## 8       8           8.1  1  1  1     .1  0
-## 9       9           1.2 -1 -1 -1     .2 13
-## 10     10           2.2  1 -1 -1     .2 11
-## 11     11           3.2 -1  1 -1     .2 14
-## 12     12           4.2  1  1 -1     .2 12
-## 13     13           5.2 -1 -1  1     .2 20
-## 14     14           6.2  1 -1  1     .2 23
-## 15     15           7.2 -1  1  1     .2 14
-## 16     16           8.2  1  1  1     .2 21
-## class=design, type= full factorial 
-## NOTE: columns run.no and run.no.std.rp  are annotation, 
-##  not part of the data frame
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lm3 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(y}\OperatorTok{~}\NormalTok{.}\OperatorTok{^}\DecValTok{3}\NormalTok{,}\DataTypeTok{data=}\NormalTok{plan)}
-\KeywordTok{summary}\NormalTok{(lm3)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Call:
-## lm.default(formula = y ~ .^3, data = plan)
-## 
-## Residuals:
-##      1      2      3      4      5      6      7      8      9     10 
-##  1.687 -1.687 -1.687  1.688 -1.688  1.688  1.688 -1.688 -1.687  1.688 
-##     11     12     13     14     15     16 
-##  1.687 -1.688  1.687 -1.688 -1.688  1.688 
-## 
-## Coefficients:
-##                Estimate Std. Error t value Pr(>|t|)
-## (Intercept)      12.375      2.386   5.185    0.121
-## A1               -1.875      2.386  -0.786    0.576
-## B1               -2.375      2.386  -0.995    0.502
-## C1               -0.875      2.386  -0.367    0.776
-## Blocks.2          3.625      3.375   1.074    0.477
-## A1:B1            -1.125      2.386  -0.471    0.720
-## A1:C1             0.375      2.386   0.157    0.901
-## A1:Blocks.2       2.625      3.375   0.778    0.579
-## B1:C1            -3.625      2.386  -1.519    0.371
-## B1:Blocks.2       1.625      3.375   0.481    0.714
-## C1:Blocks.2       4.375      3.375   1.296    0.418
-## A1:B1:C1         -1.188      1.688  -0.704    0.610
-## A1:B1:Blocks.2    1.625      3.375   0.481    0.714
-## A1:C1:Blocks.2    1.375      3.375   0.407    0.754
-## B1:C1:Blocks.2    2.375      3.375   0.704    0.610
-## 
-## Residual standard error: 6.75 on 1 degrees of freedom
-## Multiple R-squared:  0.9015, Adjusted R-squared:  -0.4779 
-## F-statistic: 0.6535 on 14 and 1 DF,  p-value: 0.7636
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lm3r <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(y}\OperatorTok{~}\NormalTok{(A}\OperatorTok{+}\NormalTok{B}\OperatorTok{+}\NormalTok{C)}\OperatorTok{^}\DecValTok{3}\NormalTok{,}\DataTypeTok{data=}\NormalTok{plan)}
-\KeywordTok{summary}\NormalTok{(lm3r)}
-\end{Highlighting}
-\end{Shaded}
+The following is the summary of the model fit for two replications when
+all interactions are included.
 
 \begin{verbatim}
 ## 
@@ -358,105 +171,95 @@ the assumptions. Important: residual plots!
 ## 
 ## Residuals:
 ##    Min     1Q Median     3Q    Max 
-##  -10.5   -1.5    0.0    1.5   10.5 
+##   -6.5   -2.5    0.0    2.5    6.5 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)  14.1875     1.4073  10.081 7.99e-06 ***
-## A1           -0.5625     1.4073  -0.400    0.700    
-## B1           -1.5625     1.4073  -1.110    0.299    
-## C1            1.3125     1.4073   0.933    0.378    
-## A1:B1        -0.3125     1.4073  -0.222    0.830    
-## A1:C1         1.0625     1.4073   0.755    0.472    
-## B1:C1        -2.4375     1.4073  -1.732    0.122    
-## A1:B1:C1     -1.1875     1.4073  -0.844    0.423    
+## (Intercept)  16.8125     1.3095  12.839 1.28e-06 ***
+## A1            1.3125     1.3095   1.002    0.346    
+## B1            0.8125     1.3095   0.620    0.552    
+## C1            2.1875     1.3095   1.670    0.133    
+## A1:B1         0.8125     1.3095   0.620    0.552    
+## A1:C1         0.6875     1.3095   0.525    0.614    
+## B1:C1         1.1875     1.3095   0.907    0.391    
+## A1:B1:C1      1.6875     1.3095   1.289    0.234    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 5.629 on 8 degrees of freedom
-## Multiple R-squared:  0.4518, Adjusted R-squared:  -0.02784 
-## F-statistic: 0.942 on 7 and 8 DF,  p-value: 0.5249
+## Residual standard error: 5.238 on 8 degrees of freedom
+## Multiple R-squared:  0.4779, Adjusted R-squared:  0.02111 
+## F-statistic: 1.046 on 7 and 8 DF,  p-value: 0.4696
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{cubePlot}\NormalTok{(lm3,}\StringTok{"A"}\NormalTok{,}\StringTok{"B"}\NormalTok{,}\StringTok{"C"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+The summary shows that the all the p-values,
+Pr(\textgreater{}\textbar{}t\textbar{}), for all the factors are larger
+than 0.1, implying that none of the factors have significant impact on
+the response. Also the standard error is relatively high.
 
-\includegraphics{Øving_3,_Linstat_files/figure-latex/unnamed-chunk-1-1.pdf}
+However one observe that the value for factor C, distraction, is higher
+than for the other factors, and the p-value is lower. Thus, it seems
+like this facor might have a higher impact on the result than the other.
+For the interaction factors it seems like the interaction between facor
+B and C, and the interactins between all the three factors are the most
+sifnificant. But also for thses the p-value is too high to conclude
+anything.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{MEPlot}\NormalTok{(lm3) }\CommentTok{# main effects plot}
-\end{Highlighting}
-\end{Shaded}
+Thw following plots are the main effect plot and the interaction plot
+\includegraphics{Øving_3,_Linstat_files/figure-latex/unnamed-chunk-3-1.pdf}
 
-\includegraphics{Øving_3,_Linstat_files/figure-latex/unnamed-chunk-1-2.pdf}
+\includegraphics{Øving_3,_Linstat_files/figure-latex/unnamed-chunk-4-1.pdf}
+These plots illustrates the same trends as those given by the summary.
+Factor C gives the steepest curve in the main effect plot. However, when
+looking at the y-axis one sees that the line is not actually very steep.
+In the interaction plot the lines for the interaction factor of B and C
+are least parallell.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{IAPlot}\NormalTok{(lm3) }\CommentTok{# interaction effect plots}
-\end{Highlighting}
-\end{Shaded}
+The next figures are the residual plot and the Q-Q-plot, testing
+normality of the residuals.
+\includegraphics{Øving_3,_Linstat_files/figure-latex/unnamed-chunk-5-1.pdf}
+\includegraphics{Øving_3,_Linstat_files/figure-latex/unnamed-chunk-5-2.pdf}
 
-\includegraphics{Øving_3,_Linstat_files/figure-latex/unnamed-chunk-1-3.pdf}
+The residuals do not seem to follow any specific pattern in the residual
+plot. In the normal Q-Q-plot the residuals deviates some from the line
+in the ends. In both plots it would be easier to conclude anything about
+the normality of the residualt if there had been more points.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{effects <-}\StringTok{ }\DecValTok{2}\OperatorTok{*}\NormalTok{lm3}\OperatorTok{$}\NormalTok{coeff}
-\NormalTok{effects}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    (Intercept)             A1             B1             C1       Blocks.2 
-##         24.750         -3.750         -4.750         -1.750          7.250 
-##          A1:B1          A1:C1    A1:Blocks.2          B1:C1    B1:Blocks.2 
-##         -2.250          0.750          5.250         -7.250          3.250 
-##    C1:Blocks.2       A1:B1:C1 A1:B1:Blocks.2 A1:C1:Blocks.2 B1:C1:Blocks.2 
-##          8.750         -2.375          3.250          2.750          4.750
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{n <-}\StringTok{ }\KeywordTok{length}\NormalTok{(y)}
-
-\CommentTok{#dev.copy2pdf(file="lima3PartoR.pdf")}
-
-\NormalTok{rres <-}\StringTok{ }\KeywordTok{rstudent}\NormalTok{(lm3)}
-\KeywordTok{plot}\NormalTok{(lm3r}\OperatorTok{$}\NormalTok{fitted,rres)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{Øving_3,_Linstat_files/figure-latex/unnamed-chunk-1-4.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(nortest)}
-\KeywordTok{library}\NormalTok{(MASS)}
-\KeywordTok{qqnorm}\NormalTok{(rres)}
-\KeywordTok{qqline}\NormalTok{(rres)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{Øving_3,_Linstat_files/figure-latex/unnamed-chunk-1-5.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# dev.copy2pdf(file="lima3qq.pdf")}
-\KeywordTok{library}\NormalTok{(nortest)}
-\KeywordTok{ad.test}\NormalTok{(}\KeywordTok{rstudent}\NormalTok{(lm3r))}
-\end{Highlighting}
-\end{Shaded}
+Since the two replicates was performed at two different times, it could
+be interesting to see if there are any significant differences between
+the two replicates. Thus, we now try to set this as a block factor, by
+having the replicates in different blocks. The following is a summary of
+the model where replicate number is set to an additional facort.
 
 \begin{verbatim}
 ## 
-##  Anderson-Darling normality test
+## Call:
+## lm.default(formula = y ~ (a + b + c)^3 + d)
 ## 
-## data:  rstudent(lm3r)
-## A = 2.7339, p-value = 2.974e-07
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -7.312 -2.094  0.000  2.094  7.312 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  16.8125     1.3658  12.309 5.36e-06 ***
+## a             1.3125     1.3658   0.961    0.369    
+## b             0.8125     1.3658   0.595    0.571    
+## c             2.1875     1.3658   1.602    0.153    
+## d            -0.8125     1.3658  -0.595    0.571    
+## a:b           0.8125     1.3658   0.595    0.571    
+## a:c           0.6875     1.3658   0.503    0.630    
+## b:c           1.1875     1.3658   0.869    0.413    
+## a:b:c         1.6875     1.3658   1.236    0.256    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 5.463 on 7 degrees of freedom
+## Multiple R-squared:  0.503,  Adjusted R-squared:  -0.0649 
+## F-statistic: 0.8857 on 8 and 7 DF,  p-value: 0.5703
 \end{verbatim}
+
+This did not improve the model, as the p-values are still large for all
+the factors.
 
 \section{Conclusion and
 recommendations:}\label{conclusion-and-recommendations}
