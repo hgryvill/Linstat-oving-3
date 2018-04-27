@@ -14,12 +14,12 @@ A test person are holding out a hand and to chatch a ruler that dropped at a ran
 
 It should be noted that one should be careful with drawing conclusions from an experiment of this magnitude. In order to obtain more accurate results, we should perform many more replicates of the experiments. This would decrease the presence of randomness in our results, and it would be clearer how each factor affects the responsiveness. 
 
-# Selection of factors and levels:
+# Selection of factors and levels
 
-The following factors was investigated: the gender of the test person, physical distraction and mental distraction. For the physical distraction the test person had to spin around for 20 seconds, and for the mental distraction the test person had to talk about a given topic (for example tell about the summer vecation) during the experiment. 
+The following factors was investigated: the gender of the test person, physical distraction and mental distraction. For the physical distraction the test person had to spin around for 20 seconds on irder to become dizzy. 20 seconds was determined based on perlimenary spinning tests. For the mental distraction the test person had to talk about a topic that requiering some thinking (for example to tell about the summer vecation) during the experiment. 
 These factors were chosen since they were relatively easy to conduct and control, and we assumed that they was suitable in order to test our experiment problem. 
 
-However, there are some difficulties in controling the factors. For example, spinning around might affect the responsiveness longer than thought. It is also reason to believe that the level of difficulty of the mental distraction was varying; some topics could be more challenging to talk about than others. Nevertheless, this is difficult to control.
+Some difficulties in controling the factors was however present. For example, spinning around might affect the responsiveness longer than thought. It is also reason to believe that the level of difficulty of the mental distraction was varying; some topics could be more challenging to talk about than others.
 
 In advance, we expected that at least physical distraction would worsen the reaction time.
 However, we did not expect that any of the factors would have a major influence on each other. For instance, there is no reason for us to think that spinning around affects women more than men. 
@@ -29,14 +29,13 @@ However, we did not expect that any of the factors would have a major influence 
 We have chosen how far down the ruler is caught as response variable, because this gives us a good measurement of the test subject's responsiveness. Response time could also be used as response variable. This is however equivalent to measuring how far the ruler has fallen, as we can easily find the response time by applying the laws of physics.  
 The response variable was measured as the midpoint of where the hand was gripping the ruler. This way of measurment involves some unaccuracy, and the correct response in each experiment is assumed whitin a range of $\pm 1$ cm of the measured value. Considering the fact that the ruler is only 30 cm long, small measurement errors makes relatively large errors.
 
-# Choice of design:
+# Choice of design
 
 In order to see significant effects, two replicates of the experiment was performed. In both replicates, all experiments were performed in random order. However, the two replicates was conducted separately. Thus, we have also analysed the results with a block factor, by setting the two replicates in different blocks. 
 
 # Implementation of the experiment
 
-As we see it, there are two main problems with the performance of the experiment. Firstly, it is almost impossible to make two genuine run replicates; our responsiveness improves as we keep doing the experiments. 
-Secondly, the experiments are not completely independent, as discussed in "Selection of factors and levels". On the other hand, the fact that the order of the experiments in the replicates are independent (and not the same, random order in both replicates) decreases the possibility of systematic error. Performing the experiments in the same order in both replicates could lead to the same error being done in both experiments.
+As we see it, there are two main problems with the performance of the experiment. Firstly, there are probably several other factors than those we measured that affects the experiment. Because of this, the two replicates of an experiment with the same facor levels differs significantly from each other. Secondly, the experiments are not completely independent, as discussed in "Selection of factors and levels". On the other hand, the fact that the order of the experiments in the replicates are independent (and not the same, random order in both replicates) decreases the possibility of systematic error. Performing the experiments in the same order in both replicates could lead to the same error being done in both experiments.
 
 # Analysis of data
 
