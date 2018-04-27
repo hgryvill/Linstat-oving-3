@@ -5,6 +5,41 @@ output:
   html_document: default
 ---
 
+# Introduction
+
+In many everyday situations it is advantageous to have a quick reaction time, for example when one are driving a car or playing a sports game. We have all learned that one should not text mobile messages while driving, since it takes off focus, and makes us react more slowly. In this experiment the aim is to study how mental and physical distractions are affecting our reaction time. 
+
+The experiment was performed in the following way: 
+A test person are holding out a hand and to chatch a ruler that dropped at a random point in time. The test person's reaction time is determined by how far down the ruler is caught. This procedure is perfored for different levels of mental and physical distractions.
+
+It should be noted that one should be careful with drawing conclusions from an experiment of this magnitude. In order to obtain more accurate results, we should perform many more replicates of the experiments. This would decrease the presence of randomness in our results, and it would be clearer how each factor affects the responsiveness. 
+
+
+# Selection of factors and levels:
+
+The following factors was investigated: the gender of the test person, physical distraction and mental distraction. For the physical distraction the test person had to spin around for 20 seconds, and for the mental distraction the test person had to talk about a given topic (for example tell about the summer vecation) during the experiment. 
+These factors were chosen since they were relatively easy to conduct and control, and we assumed that they was suitable in order to test our experiment problem. 
+
+However, there are some difficulties in controling the factors. For example, spinning around might affect the responsiveness longer than thought. It is also reason to believe that the level of difficulty of the mental distraction was varying; some topics could be more challenging to talk about than others. Nevertheless, this is difficult to control.
+
+In advance, we expected that at least physical distraction would worsen the reaction time.
+However, we did not expect that any of the factors would have a major influence on each other. For instance, there is no reason for us to think that spinning around affects women more than men. 
+
+# Selection of response variable:
+
+We have chosen how far down the ruler is caught as response variable, because this gives us a good measurement of the test subject's responsiveness. Response time could also be used as response variable. This is however equivalent to measuring how far the ruler has fallen, as we can easily find the response time by applying the laws of physics.  
+The response variable was measured by taking the average of the numbers covered by the fingers (dårlig formulering?). The response variable was measured as the midpoint of where the hand was gripping the ruler. We found it difficult to make accurate measurements of the response variable, and this is regarded as an important source of error. Considering the fact that the ruler is only 30 cm long, small measurement errors makes relatively large errors.   
+
+# Choice of design:
+
+In order to see significant effects, two replicates of the experiment was performed. In both replicates, all experiments were performed in random order.
+
+# Implementation of the experiment:
+
+As we see it, there are two main problems with the performance of the experiment. Firstly, it is almost impossible to make two genuine run replicates; our responsiveness improves as we keep doing the experiments. 
+Secondly, the experiments are not completely independent, as discussed in "Selection of factors and levels". On the other hand, the fact that the order of the experiments in the replicates are independent (and not the same, random order in both replicates) decreases the possibility of systematic error. Performing the experiments in the same order in both replicates could lead to the same error being done in both experiments. 
+
+#Analysis
 Now we are going to analyse the results of performing the experiments.
 
 The following is the summary of the model fit for two replications when all interactions are included. 
@@ -22,11 +57,13 @@ lm3r <- lm(y~(A+B+C)^3,data=plan)
 ```{r, echo=FALSE}
 summary(lm3r)
 ```
+
 The summary shows that the all the p-values, Pr(>|t|), for all the factors are larger than 0.1, implying that none of the factors have significant impact on the response. Also the standard error is relatively high. 
 
 However one observe that the value for factor C, distraction, is higher than for the other factors, and the p-value is lower. Thus, it seems like this facor might have a higher impact on the result than the other. For the interaction factors it seems like the interaction between facor B and C, and the interactins between all the three factors are the most sifnificant. But also for thses the p-value is too high to conclude anything.
 
 Thw following plots are the main effect plot and the interaction plot
+
 ```{r, echo=FALSE}
 MEPlot(lm3r)
 ```
@@ -34,9 +71,11 @@ MEPlot(lm3r)
 ```{r, echo=FALSE}
 IAPlot(lm3r)
 ```
+
 These plots illustrates the same trends as those given by the summary. Factor C gives the steepest curve in the main effect plot. However, when looking at the y-axis one sees that the line is not actually very steep. In the interaction plot the lines for the interaction factor of B and C are least parallell. 
 
 The next figures are the residual plot and the Q-Q-plot, testing normality of the residuals.
+
 ```{r, echo=FALSE}
 rres <- rstudent(lm3r)
 plot(lm3r$fitted,rres)
