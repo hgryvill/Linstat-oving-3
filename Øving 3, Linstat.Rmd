@@ -2,15 +2,15 @@
 title: "Untitled"
 author: "Astrid Langsrud, Håkon Gryvill"
 date: "25 4 2018"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-Keywords
 
-Issues to be addressed:
 
 # Introduction
 Describe the problem you want to study.
@@ -21,8 +21,7 @@ What do you want to achieve?
 In our experiment we want to study how different factors affect our responsiveness. 
 The experiment was performed in the following way: 
 A ruler is dropped at a random point in time. The test person's responsiveness is determined by how far down the ruler is caught.
-This experiment is of interest because it gives us an idea of how mental and physical distraction affects our responsiveness. (Skriv mer svada)
-
+This experiment is of interest because it gives us an idea of how mental and physical distraction affects our responsiveness. It should be noted that one should be careful with drawing conclusions from an experiment of this magnitude. In order to obtain more accurate results, we should perform many more replicates of the experiments. This would decrease the presence of randomness in our results, and it would be clearer how each factor affects the responsiveness. 
 
 
 # Selection of factors and levels:
@@ -31,9 +30,10 @@ Do you expect an interaction between some of the factors?
 Which levels should be used, and why do you think these are reasonable?
 How can you control that the factors really are at the desired level?
 
-We are looking at the following factors in our experiment: the gender of the test person, physical distraction (i. e., whether the person has been spinning around or not) and mental distraction (the person has to talk about a given subject during the experiment).
-In advance we expected that at least physical distraction would decrease the responsiveness. 
-However, we did not expect that any of the factors would have a major effect on each other. For instance, there is no reason for us to think that spinning around affects women more than men. 
+We are looking at the following factors in our experiment: the gender of the test person, physical distraction (i. e., whether the person has been spinning around or not) and mental distraction (the person has to talk about a given topic during the experiment).
+There are two main reasons why these factors were chosen. Firstly, we thought these factors were interesting. Secondly, these factors were expected to have some impact on the result. On the other hand, achieving the desired level for the different factors could be demanding. For example, spinning around might affect the responsiveness longer than thought. It is also reason to believe that the level of difficulty of the mental distraction was varying; some topics could be more challenging to talk about than others. Nevertheless, this is difficult to control.
+In advance, we expected that at least physical distraction would decrease the responsiveness.
+However, we did not expect that any of the factors would have a major influence on each other. For instance, there is no reason for us to think that spinning around affects women more than men. 
 
 # Selection of response variable:
 Which response variable will provide information about the problem described above?
@@ -41,27 +41,30 @@ Are there several response variables of interest?
 How should the response be measured?
 What can you say about the accuracy of these measurements?
 
-(We have chosen how far down the ruler is caught as response variable, because this gives an idea of the response time.)
-We found it difficult to make accurate measurements of the response variable. The response variable was measured by taking the average of the numbers covered by the fingers (dårlig formulering?).  
+We have chosen how far down the ruler is caught as response variable, because this gives us a good measurement of the test subject's responsiveness. Response time could also be used as response variable. This is however equivalent to measuring how far the ruler has fallen, as we can easily find the response time by applying the laws of physics.  
+The response variable was measured by taking the average of the numbers covered by the fingers (dårlig formulering?). The response variable was measured as the midpoint of where the hand was gripping the ruler. We found it difficult to make accurate measurements of the response variable, and this is regarded as an important source of error. Considering the fact that the ruler is only 30 cm long, small measurement errors makes relatively large errors.   
+
 # Choice of design:
 2 k factorial.
-2 k–p fractional factorial or other design?
-Desired resolution of the design?
 Is it necessary or desirable to use a blocked design?
 Is it necessary or desirable with replicates?
+
 
 In order to see significant effects, two replicates of the experiment was performed. In both replicates, all experiments were performed in random order.
 # Implementation of the experiment:
 Randomization.
 Describe any problems with the implementation (maybe the randomization was not followed?).
 Is each experiments a genuine run replicate, that is reflects the total variability of the experiment? (Each trial should be a performed independently and constitute a full trial.)
-As we see it, there are two main problems with the performance of the experiment. Firstly, it is almost impossible to make two genuine run replicates. Our responsiveness improves as we keep doing the experiments. Secondly, the experiments are not completely independent. Spinning around might affect the responsiveness longer than expected. 
+
+As we see it, there are two main problems with the performance of the experiment. Firstly, it is almost impossible to make two genuine run replicates; our responsiveness improves as we keep doing the experiments. 
+Secondly, the experiments are not completely independent, as discussed in "Selection of factors and levels". On the other hand, the fact that the order of the experiments in the replicates are independent (and not the same, random order in both replicates) decreases the possibility of systematic error. Performing the experiments in the same order in both replicates could lead to the same error being done in both experiments. 
+
 # Analysis of data
 
 Calculation of effects and assessment of statistical significance.
 Check the assumptions. Important: residual plots!
-```{r, echo=TRUE, eval = TRUE}
 
+```{r, echo=TRUE, eval = TRUE}
 y1 = c(16, 8, 15, 14, 15, 20, 11, 0)
 y2 = c(13, 11, 14, 12, 20, 23, 14, 21)
 y = c(y1, y2)
@@ -70,11 +73,30 @@ plan <- FrF2(nruns=8, nfactors=3, replications = 2, randomize=FALSE)
 plan <- add.response(plan,y)
 plan
 lm3 <- lm(y~.^3,data=plan)
+summary(lm3)
+lm3r <- lm(y~(A+B+C)^3,data=plan)
+summary(lm3r)
 cubePlot(lm3,"A","B","C")
 MEPlot(lm3) # main effects plot
 IAPlot(lm3) # interaction effect plots
 effects <- 2*lm3$coeff
 effects
+
+n <- length(y)
+
+#dev.copy2pdf(file="lima3PartoR.pdf")
+
+rres <- rstudent(lm3)
+plot(lm3r$fitted,rres)
+
+library(nortest)
+library(MASS)
+qqnorm(rres)
+qqline(rres)
+# dev.copy2pdf(file="lima3qq.pdf")
+library(nortest)
+ad.test(rstudent(lm3r))
+
 ```
 
 # Conclusion and recommendations:
