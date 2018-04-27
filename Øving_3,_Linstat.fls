@@ -94,16 +94,6 @@ INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/puenc.def
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/puenc.def
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/framed/framed.sty
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/framed/framed.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
@@ -112,6 +102,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grffile.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grffile.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/parskip/parskip.sty
@@ -158,7 +150,6 @@ INPUT /usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/lm/ec-lmtt10.tfm
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/lm/ec-lmtk10.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/lm/ts1lmtt.fd
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/lm/ts1lmtt.fd
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/lm/ts1-lmtt10.tfm
