@@ -1,0 +1,65 @@
+---
+title: "Prosjekt 3, analyse"
+output: html_document
+---
+
+Now we are going to analyse the results of performing the experiments.
+
+The following is the summary of the model fit for two replications when all interactions are included. 
+```{r, echo=FALSE, include=FALSE}
+library(FrF2)
+plan <- FrF2(nruns=8,nfactors=3,replications=2,randomize=FALSE)
+plan
+y <- c(14,22,15,16,15,10,19,30,13,11,14,12,20,23,14,21)
+y
+plan <- add.response(plan,y)
+plan
+lm3r <- lm(y~(A+B+C)^3,data=plan)
+```
+
+```{r, echo=FALSE}
+summary(lm3r)
+```
+The summary shows that the all the p-values, Pr(>|t|), for all the factors are larger than 0.1, implying that none of the factors have significant impact on the response. Also the standard error is relatively high. 
+
+However one observe that the value for factor C, distraction, is higher than for the other factors, and the p-value is lower. Thus, it seems like this facor might have a higher impact on the result than the other. For the interaction factors it seems like the interaction between facor B and C, and the interactins between all the three factors are the most sifnificant. But also for thses the p-value is too high to conclude anything.
+
+Thw following plots are the main effect plot and the interaction plot
+```{r, echo=FALSE}
+MEPlot(lm3r)
+```
+
+```{r, echo=FALSE}
+IAPlot(lm3r)
+```
+These plots illustrates the same trends as those given by the summary. Factor C gives the steepest curve in the main effect plot. However, when looking at the y-axis one sees that the line is not actually very steep. In the interaction plot the lines for the interaction factor of B and C are least parallell. 
+
+The next figures are the residual plot and the Q-Q-plot, testing normality of the residuals.
+```{r, echo=FALSE}
+rres <- rstudent(lm3r)
+plot(lm3r$fitted,rres)
+
+qqnorm(rres)
+qqline(rres)
+```
+
+The residuals do not seem to follow any specific pattern in the residual plot. In the normal Q-Q-plot the residuals deviates some from the line in the ends. In both plots it would be easier to conclude anything about the normality of the residualt if there had been more points.
+
+Since the two replicates was performed at two different times, it could be interesting to see if there are any significant differences between the two replicates. Thus, we now try to set this as a block factor, by having the replicates in different blocks. The following is a summary of the model where replicate number is set to an additional facort.
+
+```{r, echo=FALSE}
+a <- rep(c(-1, 1), 8)
+b <- rep(c(-1, -1, 1, 1), 4)
+c <- c(rep(-1, 4), rep(1, 4), rep(-1, 4), rep(1, 4))
+d <- c(rep(-1, 8), rep(1, 8))
+ab <- a * b
+ac <- a * c
+bc <- b * c
+abc <- a * b * c
+y <- c(14,22,15,16,15,10,19,30,13,11,14,12,20,23,14,21)
+fit2<-lm(y ~ (a + b + c) ^ 3 + d)
+summary(fit2)
+
+```
+This did not improve the model, as the p-values are still large for all the factors.
+
