@@ -1,6 +1,8 @@
 ---
 title: "Prosjekt 3, analyse"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 Now we are going to analyse the results of performing the experiments.
